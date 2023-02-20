@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Models\Projects\" />
+    <None Remove="Models\Sections\" />
+    <None Remove="Models\Tasks\" />
+    <None Remove="Models\Comments\" />
+    <None Remove="Models\Labels\" />
+    <None Remove="Client\" />
+    <None Remove="Newtonsoft.Json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\Projects\" />
+    <Folder Include="Models\Sections\" />
+    <Folder Include="Models\Tasks\" />
+    <Folder Include="Models\Comments\" />
+    <Folder Include="Models\Labels\" />
+    <Folder Include="Client\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoderBash.Net.Todoist.Common\CoderBash.Net.Todoist.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+</Project>
