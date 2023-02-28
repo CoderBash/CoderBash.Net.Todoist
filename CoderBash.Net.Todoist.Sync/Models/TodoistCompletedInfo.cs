@@ -2,7 +2,6 @@
 
 namespace CoderBash.Net.Todoist.Sync.Models
 {
-    // TODO implement model including sub models
     /// <summary>
     /// Todoist Completed Info model for the Sync API.
     /// </summary>
