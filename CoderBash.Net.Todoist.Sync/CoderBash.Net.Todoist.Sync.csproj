@@ -14,4 +14,8 @@
     <ProjectReference Include="..\CoderBash.Net.Todoist.Common\CoderBash.Net.Todoist.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Queries\Projects\" />
+  </ItemGroup>
+
 </Project>
