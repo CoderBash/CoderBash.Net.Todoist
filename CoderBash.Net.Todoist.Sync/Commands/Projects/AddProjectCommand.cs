@@ -35,5 +35,15 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Projects
 
             return args;
         }
+
+        public string GetTemporaryId()
+        {
+            if (string.IsNullOrEmpty(_temporaryId))
+            {
+                _temporaryId = Guid.NewGuid().ToString();
+            }
+
+            return _temporaryId;
+        }
     }
 }

@@ -6,10 +6,8 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Base
     public abstract class TodoistCommand
     {
         private readonly string _commandUniqueId = Guid.NewGuid().ToString();
-        public string CommandUniqueId => _commandUniqueId;
 
         protected string? _temporaryId;
-        public string CommandTemporaryId => _temporaryId ?? "";
 
         protected abstract string CommandType { get; }
         protected abstract Dictionary<string, object> GetCommandArgs();
