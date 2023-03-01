@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CoderBash.Net.Todoist.Rest\CoderBash.Net.Todoist.Rest.csproj" />
+    <ProjectReference Include="..\CoderBash.Net.Todoist.Sync\CoderBash.Net.Todoist.Sync.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="coverlet.msbuild" />

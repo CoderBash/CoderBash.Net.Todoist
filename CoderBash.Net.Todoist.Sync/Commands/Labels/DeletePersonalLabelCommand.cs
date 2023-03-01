@@ -3,25 +3,32 @@ using CoderBash.Net.Todoist.Sync.Commands.Base;
 using CoderBash.Net.Todoist.Sync.Extensions;
 using CoderBash.Net.Todoist.Sync.Models;
 
-namespace CoderBash.Net.Todoist.Sync.Commands.Sections
+namespace CoderBash.Net.Todoist.Sync.Commands.Labels
 {
     /// <summary>
-    /// Archive a Todoist section and all its child tasks.
+    /// Deletes a personal label.
     /// </summary>
-    public class ArchiveSectionCommand : TodoistCommand
+    public class DeletePersonalLabelCommand : TodoistCommand
     {
         /// <summary>
-        /// The ID of the section to be archived.
+        /// The ID of the label to be deleted.
         /// </summary>
         public string Id { get; set; } = null!;
 
-        protected override string CommandType => "section_archive";
+        /// <summary>
+        /// If <see cref="ShouldCascade"/> is <c>true</c> (Default behavior), all instances of the label will be removed from tasks (including shared projects).
+        /// If set to <c>false</c> the personal label will be removed from the user's account, but it will continue to appear on tasks as a shared label.
+        /// </summary>
+        public bool ShouldCascade { get; set; } = true;
+
+        protected override string CommandType => "label_delete";
 
         protected override Dictionary<string, object> GetCommandArgs()
         {
-            var args = new Dictionary<string, object>()
+            var args = new Dictionary<string, object>
             {
-                ["id"] = Id
+                ["id"] = Id,
+                ["cascade"] = ShouldCascade ? "all" : "none"
             };
 
             return args;

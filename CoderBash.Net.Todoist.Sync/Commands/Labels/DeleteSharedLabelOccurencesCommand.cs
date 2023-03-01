@@ -3,25 +3,25 @@ using CoderBash.Net.Todoist.Sync.Commands.Base;
 using CoderBash.Net.Todoist.Sync.Extensions;
 using CoderBash.Net.Todoist.Sync.Models;
 
-namespace CoderBash.Net.Todoist.Sync.Commands.Sections
+namespace CoderBash.Net.Todoist.Sync.Commands.Labels
 {
     /// <summary>
-    /// Archive a Todoist section and all its child tasks.
+    /// Deletes all occurrences of a shared label from all active tasks.
     /// </summary>
-    public class ArchiveSectionCommand : TodoistCommand
+    public class DeleteSharedLabelOccurencesCommand : TodoistCommand
     {
         /// <summary>
-        /// The ID of the section to be archived.
+        /// The name of the shared label to remove.
         /// </summary>
-        public string Id { get; set; } = null!;
+        public string Name { get; set; } = null!;
 
-        protected override string CommandType => "section_archive";
+        protected override string CommandType => "label_delete_occurrences";
 
         protected override Dictionary<string, object> GetCommandArgs()
         {
-            var args = new Dictionary<string, object>()
+            var args = new Dictionary<string, object>
             {
-                ["id"] = Id
+                ["name"] = Name
             };
 
             return args;
@@ -31,9 +31,9 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Sections
         {
             errors = new List<TodoistValidationError>();
 
-            if (string.IsNullOrWhiteSpace(Id))
+            if (string.IsNullOrWhiteSpace(Name))
             {
-                errors.Add(this.GetRequiredFieldError(nameof(Id)));
+                errors.Add(this.GetRequiredFieldError(nameof(Name)));
             }
 
             return errors.None();

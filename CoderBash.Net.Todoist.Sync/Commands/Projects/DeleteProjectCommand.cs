@@ -1,14 +1,18 @@
-﻿using CoderBash.Net.Todoist.Sync.Commands.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CoderBash.Net.Todoist.Common.Extensions;
+using CoderBash.Net.Todoist.Sync.Commands.Base;
+using CoderBash.Net.Todoist.Sync.Extensions;
+using CoderBash.Net.Todoist.Sync.Models;
 
 namespace CoderBash.Net.Todoist.Sync.Commands.Projects
 {
+    /// <summary>
+    /// Delete a Todoist Project and all its descendants. 
+    /// </summary>
     public class DeleteProjectCommand : TodoistCommand
     {
+        /// <summary>
+        /// The ID of the project to be deleted.
+        /// </summary>
         public string Id { get; set; } = null!;
 
         protected override string CommandType => "project_delete";
@@ -21,6 +25,18 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Projects
             };
 
             return args;
+        }
+
+        internal override bool ValidateCommand(out List<TodoistValidationError> errors)
+        {
+            errors = new List<TodoistValidationError>();
+
+            if (string.IsNullOrWhiteSpace(Id))
+            {
+                errors.Add(this.GetRequiredFieldError(nameof(Id)));
+            }
+
+            return errors.None();
         }
     }
 }

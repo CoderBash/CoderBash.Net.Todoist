@@ -1,4 +1,5 @@
 ﻿using CoderBash.Net.Todoist.Common.Extensions;
+using CoderBash.Net.Todoist.Sync.Models;
 using Newtonsoft.Json;
 
 namespace CoderBash.Net.Todoist.Sync.Commands.Base
@@ -12,7 +13,9 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Base
         protected abstract string CommandType { get; }
         protected abstract Dictionary<string, object> GetCommandArgs();
 
-        public string GenerateCommand()
+        internal abstract bool ValidateCommand(out List<TodoistValidationError> errors);
+
+        internal string GenerateCommand()
         {
             var commandObject = new Dictionary<string, object>()
             {
