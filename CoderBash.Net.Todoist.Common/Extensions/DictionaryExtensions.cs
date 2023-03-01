@@ -30,6 +30,19 @@ namespace CoderBash.Net.Todoist.Common.Extensions
 				dictionary.Add(key, value);
 			}
 		}
-	}
+
+		public static List<KeyValuePair<string, string>> ToKeyValuePairs(this Dictionary<string, object> dictionary)
+		{
+			var keyValuePairs = new List<KeyValuePair<string, string>>();
+
+			foreach (var kv in dictionary)
+			{
+				if (kv.Value != null)
+					keyValuePairs.Add(new KeyValuePair<string, string>(kv.Key, kv.Value.ToString() ?? ""));
+			}
+
+			return keyValuePairs;
+		}
+    }
 }
 

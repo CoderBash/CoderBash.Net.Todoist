@@ -17,12 +17,12 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Sections
         /// <summary>
         /// (Optional) The name of the section.
         /// </summary>
-        public string? Name { get; set; }
+        public string? Name { get; set; } = null;
 
         /// <summary>
         /// (Optional) Whether the section's tasks are collapsed.
         /// </summary>
-        public bool? Collapsed { get; set; }
+        public bool? Collapsed { get; set; } = null;
 
         protected override string CommandType => "section_update";
 

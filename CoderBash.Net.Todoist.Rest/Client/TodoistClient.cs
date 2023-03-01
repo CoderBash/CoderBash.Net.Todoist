@@ -57,20 +57,9 @@ namespace CoderBash.Net.Todoist.Rest.Client
 				throw new TodoistException($"{GetResponseErrorInfo(response)} returned an error: {response.ReasonPhrase}");
 			}
 
-			var responseContent = await response.Content.ReadAsStringAsync(cancellationToken);
-
-			if (responseContent == null)
-			{
-				throw new TodoistException($"Unable to read content of {GetResponseErrorInfo(response)}");
-			}
-
-			var responseModel = JsonConvert.DeserializeObject<TResponse>(responseContent);
-
-			if (responseModel == null)
-			{
-				throw new TodoistException($"Unable to deserialize {typeof(TResponse).Name} model from the contents of {GetResponseErrorInfo(response)}");
-			}
-
+			var responseContent = await response.Content.ReadAsStringAsync(cancellationToken) ?? throw new TodoistException($"Unable to read content of {GetResponseErrorInfo(response)}");
+            var responseModel = JsonConvert.DeserializeObject<TResponse>(responseContent) ?? throw new TodoistException($"Unable to deserialize {typeof(TResponse).Name} model from the contents of {GetResponseErrorInfo(response)}");
+            
 			return responseModel;
 		}
 

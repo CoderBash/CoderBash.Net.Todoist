@@ -22,17 +22,17 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Tasks
         /// <summary>
         /// (Optional) The ID of the destination parent task. The task becomes the last child of the parent task.
         /// </summary>
-        public string? ParentId { get; set; }
+        public string? ParentId { get; set; } = null;
 
         /// <summary>
         /// (Optional) The ID of the destination section. The task becomes the last root task of the section.
         /// </summary>
-        public string? SectionId { get; set; }
+        public string? SectionId { get; set; } = null;
 
         /// <summary>
         /// (Optional) The ID of the destination project. The task becomes the last root task of the project.
         /// </summary>
-        public string? ProjectId { get; set; }
+        public string? ProjectId { get; set; } = null;
 
         protected override string CommandType => "item_move";
 

@@ -16,7 +16,7 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Tasks
         /// <summary>
         /// (Optional) The due date of the task.
         /// </summary>
-        public TodoistDueDate? DueDate { get; set; }
+        public TodoistDueDate? DueDate { get; set; } = null;
 
 
         protected override string CommandType => "item_update_date_complete";

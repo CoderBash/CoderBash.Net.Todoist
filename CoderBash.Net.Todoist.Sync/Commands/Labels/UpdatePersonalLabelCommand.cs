@@ -18,22 +18,22 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Labels
         /// <summary>
         /// (Optional) The name of the label.
         /// </summary>
-        public string? Name { get; set; } = null!;
+        public string? Name { get; set; } = null;
 
         /// <summary>
         /// (Optional) The color of the label's icon. See <see cref="TodoistColors"/> for available options.
         /// </summary>
-        public TodoistColors? Color { get; set; }
+        public TodoistColors? Color { get; set; } = null;
 
         /// <summary>
         /// (Optional) The order of the label in the label list (the smallest value puts the label on top).
         /// </summary>
-        public int? Order { get; set; }
+        public int? Order { get; set; } = null;
 
         /// <summary>
         /// (Optional) Whether the label is a favorite.
         /// </summary>
-        public bool? IsFavorite { get; set; }
+        public bool? IsFavorite { get; set; } = null;
 
         protected override string CommandType => "label_update";
 

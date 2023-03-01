@@ -19,27 +19,27 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Projects
         /// <summary>
         /// (Optional) The color of the project's icon. See <see cref="TodoistColors"/> for available options.
         /// </summary>
-        public TodoistColors? Color { get; set; }
+        public TodoistColors? Color { get; set; } = null;
 
         /// <summary>
         /// (Optional) The ID of the parent project. 
         /// </summary>
-        public string? ParentId { get; set; }
+        public string? ParentId { get; set; } = null;
 
         /// <summary>
         /// (Optional) The order of the project. Defines the position of the project among all projects with the same <see cref="ParentId"/>.
         /// </summary>
-        public int? ChildOrder { get; set; }
+        public int? ChildOrder { get; set; } = null;
 
         /// <summary>
         /// (Optional) Whether the project is a favorite.
         /// </summary>
-        public bool? IsFavorite { get; set; }
+        public bool? IsFavorite { get; set; } = null;
 
         /// <summary>
         /// (Optional) View style which determines how the project is displayed in Todoist Clients. See <see cref="TodoistViewStyles" /> for available options.
         /// </summary>
-        public TodoistViewStyles? ViewStyle { get; set; }
+        public TodoistViewStyles? ViewStyle { get; set; } = null;
 
         protected override string CommandType => "project_add";
 

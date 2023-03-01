@@ -23,7 +23,7 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Sections
         /// <summary>
         /// (Optional) The order of the section. Defines the position of the section among all the sections in the project.
         /// </summary>
-        public int? SectionOrder { get; set; }
+        public int? SectionOrder { get; set; } = null;
 
         protected override string CommandType => "section_add";
 

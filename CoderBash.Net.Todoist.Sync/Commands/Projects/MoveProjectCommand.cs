@@ -18,7 +18,7 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Projects
         /// <summary>
         /// (Optional) The ID of the parent project. If <see cref="ParentId"/> is <c>NULL</c> the project will be moved to the root.
         /// </summary>
-        public string? ParentId { get; set; }
+        public string? ParentId { get; set; } = null;
 
         protected override string CommandType => "project_move";
 

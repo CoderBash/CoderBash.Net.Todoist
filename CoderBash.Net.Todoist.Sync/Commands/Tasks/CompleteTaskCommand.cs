@@ -17,7 +17,7 @@ namespace CoderBash.Net.Todoist.Sync.Commands.Tasks
         /// <summary>
         /// (Optional) The date when the task was completed. If not set, the server will set this to the current timestamp.
         /// </summary>
-        public DateTime? DateCompleted { get; set; }
+        public DateTime? DateCompleted { get; set; } = null;
 
         protected override string CommandType => "item_complete";
 

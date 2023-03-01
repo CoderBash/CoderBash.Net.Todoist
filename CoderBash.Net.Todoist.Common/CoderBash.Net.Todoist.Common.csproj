@@ -14,7 +14,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
-    <Folder Include="Extensions\" />
+    <Folder Include="Extensions\NewFolder\" />
     <Folder Include="Options\" />
   </ItemGroup>
 </Project>
